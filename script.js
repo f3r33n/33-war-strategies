@@ -172,7 +172,8 @@
         });
     });
 
-})();// --- Custom Cursor Clock ---
+})();
+// --- Custom Cursor Clock (Final Corrected Version) ---
 
 const cursorClock = document.getElementById('cursor-clock');
 const hourHand = cursorClock.querySelector('.hour-hand');
@@ -188,20 +189,24 @@ window.addEventListener('mousemove', e => {
     });
 });
 
-// 2. Function to update the clock hands
+// 2. Function to update the clock hands with corrected rotation
 function setClockHands() {
     const now = new Date();
 
     const seconds = now.getSeconds();
-    const secondsDegrees = ((seconds / 60) * 360) + 90; // Offset by 90deg
+    // The "+ 90" offset has been removed for the correct orientation.
+    const secondsDegrees = ((seconds / 60) * 360);
     secondHand.style.transform = `translateX(-50%) rotate(${secondsDegrees}deg)`;
 
     const minutes = now.getMinutes();
-    const minutesDegrees = ((minutes / 60) * 360) + ((seconds / 60) * 6) + 90; // Offset by 90deg
+    // The "+ 90" offset has been removed.
+    const minutesDegrees = ((minutes / 60) * 360) + ((seconds / 60) * 6);
     minuteHand.style.transform = `translateX(-50%) rotate(${minutesDegrees}deg)`;
 
     const hours = now.getHours();
-    const hoursDegrees = ((hours / 12) * 360) + ((minutes / 60) * 30) + 90; // Offset by 90deg
+    const hoursForClock = hours % 12 || 12;
+    // The "+ 90" offset has been removed.
+    const hoursDegrees = ((hoursForClock / 12) * 360) + ((minutes / 60) * 30);
     hourHand.style.transform = `translateX(-50%) rotate(${hoursDegrees}deg)`;
 }
 
