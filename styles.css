@@ -189,7 +189,7 @@ body.dark-mode .toggle-indicator { transform: translateX(23px); }
 .site-footer { text-align: center; padding: 3rem 5%; border-top: 1px solid var(--color-border); font-size: 0.9rem; opacity: 0.6; }
 
 /* --- Scroll Animations --- */
-.animate-on-scroll { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-out-cubic), transform 0.8s var(--ease-out-cubic); }
+.animate-on-scroll { opacity: 0; transform: translateY(40px); transition: opacity 0.4s var(--ease-out-cubic), transform 0.4s var(--ease-out-cubic); }
 .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
 /* Staggered animation for cards */
 .strategy-card { transition-delay: calc(0.1s * var(--card-index)); }
